@@ -1,4 +1,4 @@
-import Cracking_The_Code_INTERVIEWS.Time_Complexity__Primality;
+import Cracking_The_Code_INTERVIEWS.Strings__Making_Anagrams;
 
 /**
  * Created by _kbluue_ on 1/29/2018.
@@ -6,6 +6,8 @@ import Cracking_The_Code_INTERVIEWS.Time_Complexity__Primality;
 public class mainTestZone {
 
     public static void main(String[] args){
-        Time_Complexity__Primality.printAllPrime(1000);
+        Strings__Making_Anagrams.run();
+//        System.out.println(new _Misc().trimString("cab", "b"));
+//        System.out.println("cab".contains("b"));
     }
 }
