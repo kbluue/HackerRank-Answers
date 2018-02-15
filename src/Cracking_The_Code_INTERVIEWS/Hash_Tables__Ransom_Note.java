@@ -24,13 +24,15 @@ public class Hash_Tables__Ransom_Note {
         return true;
     }
 
-    static void run(){
+    public static void run(){
         //read
         Scanner in = new Scanner(System.in);
         in.nextLine(); //redundant since I'm using String.split
         String magazine = in.nextLine();
         String ransom = in.nextLine();
-        //run and print
-        System.out.println(new Hash_Tables__Ransom_Note().mapMatch(magazine.split(" "), ransom.split(" ")));
+        //run
+        boolean run = new Hash_Tables__Ransom_Note().mapMatch(magazine.split(" "), ransom.split(" "));
+        //print
+        System.out.println((run ? "Yes" : "No"));
     }
 }

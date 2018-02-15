@@ -41,5 +41,13 @@ public class _Misc {
         }
     }
 
+    String nextLine(){
+        return input.nextLine();
+    }
+
+    String next(){
+        return input.next();
+    }
+
 
 }
