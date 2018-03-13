@@ -41,6 +41,25 @@ public class _Misc {
         }
     }
 
+    private long aCb(int a,int b){
+        if (a < b) return -1;
+        return (factorial(a)/(factorial(b)*factorial(a-b)));
+    }
+
+    private long aPb(int a,int b){
+        if (a < b) return -1;
+        return (factorial(a)/(factorial(b)));
+    }
+
+    private long factorial(int A){
+        if (A <= 1) return 1;
+        long out = 1;
+        for (int i = 1; i < A + 1; i++) {
+            out *= i;
+        }
+        return out;
+    }
+
     String nextLine(){
         return input.nextLine();
     }

@@ -1,5 +1,7 @@
 package Cracking_The_Code_INTERVIEWS;
 
+import java.util.Arrays;
+
 /**
  * Created by _kbluue_ on 3/11/2018.
  */
@@ -13,68 +15,54 @@ public class Binary_Search__Ice_Cream_Parlour {
         }
     }
 
-    private long aPb(int a,int b){
-        if (a < b) return -1;
-        return (factorial(a)/(factorial(b)*factorial(a-b)));
-    }
+    class permute{
 
-    private long factorial(int A){
-        if (A <= 1) return 1;
-        long out = 1;
-        for (int i = 1; i < A + 1; i++) {
-            out *= i;
-        }
-        return out;
-    }
+        int valuesIndex[], a, b, iceCreamPrice[];
+        boolean complete;
 
-    class permuteControl{
-
-        int[] currentIndex, startingIndex, endingIndex, array, content;
-        boolean lastSet = false;
-
-        permuteControl(int size,int[] array){
-            if (size < 1) size = 1;
-            if (size > array.length) size = array.length;
-            if (size == array.length){
-                content = array;
-                lastSet = true;
+        permute(int a,int b){
+            if (b > a){
+                System.out.println("Binary_Search__Ice_Cream_Parlour.permute error (b cannot be more than a)");
                 return;
             }
 
-            //set starting and ending indexes
-            startingIndex = new int[size];
-            endingIndex = new int[size];
-            for (int i = 0; i < size; i++) {
-                startingIndex[i] = i;
-                endingIndex[i] = array.length - 2 + i;
+            this.a = a;
+            this.b = b;
+            valuesIndex = new int[b];
+            complete = false;
+
+            //set initial state
+            for (int i = 0; i < b; i++) {
+                valuesIndex[i] = i;
             }
 
-            currentIndex = startingIndex;
-            this.array = array;
+        }
+        void plus1(int index){
+            if (index < 0) return;
+            valuesIndex[index]++;
+            if (valuesIndex[index] > (a - b + index)){
+                plus1(index - 1);
+                if (index > 0) valuesIndex[index] = valuesIndex[index - 1] + 1;
+                else complete = true;
+            }
         }
 
-        private void next(./.l){
-            currentIndex[]
+        void plus1(){
+            plus1(b - 1);
+        }
+
+        void allPerms(){
+            while (!complete){
+                System.out.println(Arrays.toString(valuesIndex));
+                plus1();
+            }
         }
     }
 
-    private void permute(int size,int[] array){
-        if (size > array.length) {
-            System.out.println("Error Something");
-            return;
-        }
-        int[] index = new int[size];
-
-
-
-        //set index to start
-        index = sIndex;
-
-
+    private void permute(int a,int b){
     }
 
     public static void main(String[] args){
-        System.out.println(new Binary_Search__Ice_Cream_Parlour().factorial(5));
-        System.out.println(new Binary_Search__Ice_Cream_Parlour().aPb(5, 2));
+        new Binary_Search__Ice_Cream_Parlour().new permute(4, 2).allPerms();
     }
 }
