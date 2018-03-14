@@ -7,22 +7,26 @@ import java.util.Arrays;
  */
 public class Binary_Search__Ice_Cream_Parlour {
 
-    private void allCombo(int... values){
-        int size = values.length;
+    int money, iceCreamPrices[];
 
-        for (int i = 1; i < size; i++) {
-
-        }
+    Binary_Search__Ice_Cream_Parlour(int money,int[] iceCreamPrices){
+        this.money = money;
+        this.iceCreamPrices = iceCreamPrices;
     }
 
     class permute{
 
-        int valuesIndex[], a, b, iceCreamPrice[];
+        int valuesIndex[], a, b;
         boolean complete;
 
         permute(int a,int b){
             if (b > a){
                 System.out.println("Binary_Search__Ice_Cream_Parlour.permute error (b cannot be more than a)");
+                complete = true;
+                return;
+            } else if (b < 1){
+                System.out.println("permute.permute error (b cannot be less than 1)");
+                complete = true;
                 return;
             }
 
@@ -59,10 +63,33 @@ public class Binary_Search__Ice_Cream_Parlour {
         }
     }
 
-    private void permute(int a,int b){
+    void readValues(){
+        _Misc in = new _Misc();
+        int times = in.nextInt();
+        for (int i = 0; i < times; i++) {
+            money = in.nextInt();
+            int n = in.nextInt();
+//            int values[] = new int[n];
+            for (int j = 0; j < n; j++) {
+//                values[j] = in.nextInt();
+            }
+        }
+    }
+
+    int sumOfSet(int[] set){
+        int sum = 0;
+        for (int i : set) sum += iceCreamPrices[i];
+        return sum;
+    }
+
+    void runPermute(){
+        permute permute = new permute(iceCreamPrices.length, 2);
+        while (!permute.complete){
+            if (sumOfSet(permute.valuesIndex) == money) System.out.printf("%d %d", permute.valuesIndex[0] + 1,
+                    permute.valuesIndex[1] + 1);
+        }
     }
 
     public static void main(String[] args){
-        new Binary_Search__Ice_Cream_Parlour().new permute(4, 2).allPerms();
     }
 }
