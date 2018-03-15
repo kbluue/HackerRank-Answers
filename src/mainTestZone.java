@@ -1,4 +1,4 @@
-import Cracking_The_Code_INTERVIEWS.Heaps__Finding_The_Running_Median;
+import Cracking_The_Code_INTERVIEWS.Binary_Search__Ice_Cream_Parlour;
 
 /**
  * Created by _kbluue_ on 1/29/2018.
@@ -6,6 +6,6 @@ import Cracking_The_Code_INTERVIEWS.Heaps__Finding_The_Running_Median;
 public class mainTestZone {
 
     public static void main(String[] args){
-        new Heaps__Finding_The_Running_Median().run();
+        new Binary_Search__Ice_Cream_Parlour().run();
     }
 }
